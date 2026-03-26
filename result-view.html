@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ফলাফল দেখুন | Milestone Information Technology Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Professional Certificate Style Specifics */
+        .cert-container {
+            width: 100%;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-bottom: 30px;
+            border: 2px solid var(--bd-green);
+        }
+
+        .cert-inner-border {
+            border: 1px solid #ddd;
+            padding: 30px;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .watermark img {
+            width: 400px;
+        }
+
+        .cert-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .cert-header {
+            text-align: center;
+            border-bottom: 2px double var(--bd-red);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cert-header img {
+            width: 70px;
+        }
+
+        .cert-header h2 {
+            font-size: 26px;
+            color: var(--bd-green);
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .cert-header p {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .cert-header h3 {
+            font-size: 18px;
+            display: inline-block;
+            background: var(--bd-green);
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 30px;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Meta Data */
+        .cert-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Student Info Blocks */
+        .student-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .student-details {
+            width: 70%;
+        }
+
+        .student-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .student-table td {
+            padding: 6px 0;
+            color: #222;
+        }
+
+        .student-table td:first-child {
+            font-weight: bold;
+            width: 35%;
+        }
+
+        .student-photo {
+            width: 130px;
+            height: 150px;
+            border: 2px solid #ddd;
+            padding: 3px;
+            background: #fff;
+        }
+
+        .student-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Academic Marks Section */
+        .academic-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .academic-table th,
+        .academic-table td {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+        }
+
+        .academic-table th {
+            background-color: rgba(0, 106, 78, 0.05);
+            /* very light green */
+            color: var(--bd-green);
+            width: 40%;
+            text-align: left;
+        }
+
+        .academic-table td {
+            color: #333;
+        }
+
+        .highlight-grade {
+            background-color: rgba(244, 42, 65, 0.05);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Signatures */
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 50px;
+        }
+
+        .sign-block {
+            text-align: center;
+            width: 25%;
+        }
+
+        .sign-block hr {
+            border: 0;
+            border-top: 1px solid #555;
+            margin-bottom: 8px;
+        }
+
+        .sign-block span {
+            font-size: 13px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .cert-container {
+                padding: 15px;
+            }
+
+            .cert-inner-border {
+                padding: 15px;
+            }
+
+            .cert-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .cert-header h2 {
+                font-size: 18px;
+                line-height: 1.4;
+            }
+
+            .cert-header h3 {
+                font-size: 14px;
+            }
+
+            .cert-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .student-flex {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+
+            .student-details {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .student-table td:first-child {
+                width: auto;
+                min-width: 120px;
+                display: inline-block;
+            }
+
+            .academic-table {
+                font-size: 12px;
+            }
+
+            .academic-table th,
+            .academic-table td {
+                padding: 8px 10px;
+            }
+
+            .signatures {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            .sign-block {
+                width: 80%;
+            }
+
+            .watermark img {
+                width: 200px;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                font-family: Arial, sans-serif;
+            }
+
+            .gov-container {
+                box-shadow: none;
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                border: none;
+                padding: 0;
+            }
+
+            #no-print-top,
+            #no-print-header,
+            #no-print-nav,
+            #no-print-search,
+            #no-print-btn,
+            .footer-colors,
+            .gov-footer {
+                display: none !important;
+            }
+
+            .content-wrapper {
+                padding: 0;
+            }
+
+            .cert-container {
+                border: 2px solid var(--bd-green);
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .cert-inner-border {
+                padding: 20px;
+            }
+
+            /* Force background colors setting during print */
+            .cert-header h3 {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .academic-table th {
+                background-color: rgba(0, 106, 78, 0.1) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .highlight-grade {
+                background-color: rgba(244, 42, 65, 0.1) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .watermark {
+                opacity: 0.05 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gov-container">
+
+        <!-- Top Bar -->
+        <div class="top-bar" id="no-print-top">
+            <div>বাংলাদেশ জাতীয় তথ্য বাতায়ন আদলে তৈরি</div>
+            <div class="lang-switch">English</div>
+        </div>
+
+        <!-- Header -->
+        <header class="header-banner"
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;"
+            id="no-print-header">
+            <div class="header-logo">
+                <img src="https://mitfbd.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.67a76a30.png&w=128&q=75"
+                    alt="MITF Logo"
+                    style="background: #ffffff; width: 85px; height: 85px; padding: 5px; border-radius: 50%; border: 3px solid var(--bd-red); box-shadow: 0 4px 6px rgba(0,0,0,0.15); object-fit: contain;">
+                <div class="header-title">
+                    <h1 style="text-shadow: 1px 1px 1px rgba(0,0,0,0.1); margin-bottom: 5px;">Milestone Information
+                        Technology Foundation</h1>
+                    <div style="font-weight: 600; color: #555;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের অনুমোদিত প্রতিষ্ঠান
+                    </div>
+                </div>
+            </div>
+            <div class="header-contact"
+                style="background: var(--light-bg); padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 13.5px; line-height: 1.6; color: #333; text-align: left;">
+                <div><i class="fas fa-map-marker-alt" style="color: var(--bd-red); width: 15px;"></i>
+                    <strong>ঠিকানা:</strong> বাড়ি-১৪, রোড-০৭, বনশ্রী, রামপুরা, ঢাকা</div>
+                <div><i class="fas fa-phone-alt" style="color: var(--bd-green); width: 15px;"></i>
+                    <strong>মোবাইল:</strong> +8801723948988</div>
+                <div><i class="fas fa-envelope" style="color: #0056b3; width: 15px;"></i> <strong>ইমেইল:</strong>
+                    milestoneitf@gmail.com</div>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav" id="no-print-nav">
+            <ul>
+                <li><a href="index.html">হোম</a></li>
+                <li><a href="courses.html">কোর্স সমূহ</a></li>
+                <li><a href="result.html" class="active">ফলাফল</a></li>
+                <li><a href="public-notice.html">নোটিশ বোর্ড</a></li>
+                <li><a href="center-apply.html">সেন্টার আবেদন</a></li>
+                <li><a href="center-login.html">সেন্টার লগইন</a></li>
+                <li><a href="contact.html">যোগাযোগ</a></li>
+            </ul>
+        </nav>
+
+        <!-- Content Area -->
+        <div class="content-wrapper">
+
+            <div class="main-content" style="width: 100%;">
+
+                <a href="result.html" class="btn-search-purple" id="no-print-search"><i class="fas fa-search"></i>
+                    Search Result</a>
+
+                <div style="text-align: right; margin-bottom: 20px;" id="no-print-btn">
+                    <button onclick="window.print()" class="btn-print"><i class="fas fa-print"></i> Print
+                        Transcript</button>
+                </div>
+
+                <!-- Professional Certificate Block -->
+                <div class="cert-container" id="printableArea">
+                    <div class="cert-inner-border">
+
+                        <!-- Watermark Logo -->
+                        <div class="watermark">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/National_Emblem_of_Bangladesh.svg"
+                                alt="Watermark">
+                        </div>
+
+                        <!-- Content wrapper -->
+                        <div class="cert-content">
+
+                            <div class="cert-header">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/National_Emblem_of_Bangladesh.svg"
+                                    alt="Emblem">
+                                <div>
+                                    <h2>Milestone Information Technology Foundation</h2>
+                                    <p>Government Approved & Registered IT Training Institute</p>
+                                    <h3>ACADEMIC TRANSCRIPT</h3>
+                                </div>
+                            </div>
+
+                            <div class="cert-meta">
+                                <span>Serial No: 115-2019</span>
+                                <span>Date of Issue: 26 March, 2026</span>
+                            </div>
+
+                            <div class="student-flex">
+                                <div class="student-details">
+                                    <table class="student-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Name of Student</td>
+                                                <td>: <strong>MD. SOLAYMAN ISLAM</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Father's Name</td>
+                                                <td>: MD. SHOHIJOL</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mother's Name</td>
+                                                <td>: FATEMA</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Registration No.</td>
+                                                <td>: 23100027</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Roll No.</td>
+                                                <td>: 100027</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="student-photo">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+                                        alt="Student Photo">
+                                </div>
+                            </div>
+
+                            <div class="academic-details">
+                                <table class="academic-table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Course Name</th>
+                                            <td><strong>Computer Office Application</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Course Duration</th>
+                                            <td>6 Months</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Session</th>
+                                            <td>July to December, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Name of Center with Code</th>
+                                            <td>Advanced Computer Training Center (3)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Gender</th>
+                                            <td>Male</td>
+                                        </tr>
+                                        <tr class="highlight-grade">
+                                            <th style="color: var(--bd-red);">Final Grade (GPA)</th>
+                                            <td style="color: var(--bd-red);">A+ (Excellent)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="signatures">
+                                <div class="sign-block">
+                                    <hr>
+                                    <span>Prepared By</span>
+                                </div>
+                                <div class="sign-block">
+                                    <hr>
+                                    <span>Controller of Examinations</span>
+                                </div>
+                                <div class="sign-block">
+                                    <hr>
+                                    <span>Director / Chairman</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Background Line -->
+        <div class="footer-colors"></div>
+
+        <!-- Footer -->
+        <footer class="gov-footer">
+            <div class="footer-left">
+                <strong>ঠিকানা:</strong> বাড়ি-১৪, রোড-০৭, ব্লক-ডি, বনশ্রী, রামপুরা, ঢাকা<br>
+                <strong>যোগাযোগ:</strong> +8801723948988 | milestoneitf@gmail.com
+            </div>
+            <div class="footer-right">
+                পরিকল্পনা ও বাস্তবায়নে: <a href="index.html">Milestone ITF</a><br>
+                কারিগরি সহায়তায়: <strong>Sheikh মুহাম্মদ আসলাম</strong>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
